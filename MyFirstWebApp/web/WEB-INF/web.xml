@@ -4,9 +4,17 @@
         <servlet-name>SimpleCalculatorServlet</servlet-name>
         <servlet-class>sit.int303.first.servlet.SimpleCalculatorServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VerySimpleCalculatorServlet</servlet-name>
+        <servlet-class>sit.int303.first.servlet.VerySimpleCalculatorServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SimpleCalculatorServlet</servlet-name>
         <url-pattern>/SimpleCalc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerySimpleCalculatorServlet</servlet-name>
+        <url-pattern>/VerySimpleCalc</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

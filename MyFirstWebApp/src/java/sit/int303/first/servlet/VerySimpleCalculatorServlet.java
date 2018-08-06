@@ -5,18 +5,20 @@
  */
 package sit.int303.first.servlet;
 
+import com.sun.org.apache.xalan.internal.xsltc.runtime.Operators;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import sit.int303.first.model.SimpleCalculator;
 
 /**
  *
  * @author INT303
  */
-public class SimpleCalculatorServlet extends HttpServlet {
+public class VerySimpleCalculatorServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,36 +33,51 @@ public class SimpleCalculatorServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             try {
                 String xStr = request.getParameter("x");
                 String yStr = request.getParameter("y");
+                String operator = request.getParameter("operator");
 //            parseInt=valueOf
-                int x = Integer.parseInt(xStr);
-                int y = Integer.valueOf(yStr);
-
-                int result = x + y;
+                double x = Integer.parseInt(xStr);
+                double y = Integer.valueOf(yStr);
+//                double result = 0;
+//                
+//                 if (operator.equalsIgnoreCase("+")) {
+//                   result= x + y; 
+//                }else if (operator.equalsIgnoreCase("-")) {
+//                   result= x - y; 
+//                }else if (operator.equalsIgnoreCase("x")) {
+//                   result= x * y; 
+//                }else if (operator.equalsIgnoreCase("/")) {
+//                   result= x / y; 
+//                }
+                SimpleCalculator sc = new SimpleCalculator();
+                sc.setX(x);
+                sc.setY(y);
+                sc.setOperator(operator);
+                
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
                 out.println("<head>");
                 out.println("<title>Servlet SimpleCalculatorServlet</title>");
                 out.println("</head>");
                 out.println("<body>");
-                out.println(String.format("<h1> x = %d, y = %d,  %d + %d = %d </h1>\n", x, y, x, y, result));
+                out.println("<h1>"+sc.toString()+"</h1>");
                 out.println("</body>");
                 out.println("</html>");
             } catch (Exception e) {
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
                 out.println("<head>");
-                out.println("<title>Servlet SimpleCalculatorServlet</title>");
+                out.println("<title>Servlet VerySimpleCalculatorServlet</title>");            
                 out.println("</head>");
                 out.println("<body>");
-                out.println("<h1> Wow‼ EROR 404 </h1>");
+                out.println("<h1>Servlet ERROR " + "</h1>");
                 out.println("</body>");
                 out.println("</html>");
             }
-
+             
+            
         }
     }
 
