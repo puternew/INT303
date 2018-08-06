@@ -56,15 +56,19 @@ public class VerySimpleCalculatorServlet extends HttpServlet {
                 sc.setY(y);
                 sc.setOperator(operator);
                 
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Servlet SimpleCalculatorServlet</title>");
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<h1>"+sc.toString()+"</h1>");
-                out.println("</body>");
-                out.println("</html>");
+                request.setAttribute("calculator", sc);
+                getServletContext().getRequestDispatcher("/SimpleCalculatorview.jsp").forward(request, response);
+                
+                
+//                out.println("<!DOCTYPE html>");
+//                out.println("<html>");
+//                out.println("<head>");
+//                out.println("<title>Servlet SimpleCalculatorServlet</title>");
+//                out.println("</head>");
+//                out.println("<body>");
+//                out.println("<h1>"+sc.toString()+"</h1>");
+//                out.println("</body>");
+//                out.println("</html>");
             } catch (Exception e) {
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
