@@ -11,11 +11,22 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Result JSP Page</title>
     </head>
-    <body><center>
+    <style>
+        body{
+            margin: 250px 250px;
+            text-align: center;
+            height: 100vh;
+            overflow-y: hidden;
+        background: linear-gradient(to bottom right, red, yellow); /* Standard syntax (must be last) */ 
+        }
+    </style>
+    <body>
+   
+        
         <h1 style="font-size:300%;">--  Result  --</h1>
-        <dev style="font-size:160%;"> 
-            " ${calculator.result} "                     
-        </dev>
-    </center>
-    </body>
+        <div style="font-size:160%;"> 
+            " ${calculator.result} "   
+        </div>
+   
+</body>
 </html>

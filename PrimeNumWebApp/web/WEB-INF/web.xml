@@ -8,6 +8,10 @@
         <servlet-name>VerySimpleCalculatorServlet</servlet-name>
         <servlet-class>sit.int303.primeNumber.servlet.VerySimpleCalculatorServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VerySimplePrimeServlet</servlet-name>
+        <servlet-class>sit.int303.first.servlet.VerySimplePrimeServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SimpleCalculatorServlet</servlet-name>
         <url-pattern>/SimpleCalc</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>VerySimpleCalculatorServlet</servlet-name>
         <url-pattern>/VerySimpleCalculatorServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerySimplePrimeServlet</servlet-name>
+        <url-pattern>/VerySimplePrimeServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -18,17 +18,17 @@ public class SimpleCalculator {
 	System.out.println("Enter any number:");
         
         if(input>1){
-	for(int i=2;i<=input/2;i++){      
+	for(int i=2;i<input;i++){      
            check=input%i;
 	   if(check==0){
 	      isPrime=false;
+              break;
 	   }
 	}
 	if(isPrime){
 	   return input + " is a Prime Number";
             } 
-        }
-        
+        }       
         return input + " is not a Prime Number";
     }
 

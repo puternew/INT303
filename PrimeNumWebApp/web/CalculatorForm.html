@@ -10,11 +10,18 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    
+    <style>
+        body{
+            margin: 250px 250px;
+            text-align: center;
+            background-color: #9900ff;
+            color:#33cc33;
+        }
+    </style>
     <body><center>
         <h1 style="font-size:300%;">" Calculator "</h1><br>
-        <form action="VerySimpleCalculatorServlet" method="post">
-            Input Number = <input type = "number" required name= "input"/>
+        <form  action="VerySimpleCalculatorServlet" method="post">
+            Input Number = <input style="border-radius: 10px ;text-align: center" type = "number" required name= "input"/>
             <input type="submit"/>
         </form>
         </center>

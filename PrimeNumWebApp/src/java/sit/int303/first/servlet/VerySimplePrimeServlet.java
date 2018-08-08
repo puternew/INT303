@@ -5,20 +5,19 @@
  */
 package sit.int303.first.servlet;
 
-import com.sun.org.apache.xalan.internal.xsltc.runtime.Operators;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import sit.int303.first.model.SimpleCalculator;
+import sit.int303.first.model.SimplePrime;
 
 /**
  *
  * @author INT303
  */
-public class VerySimpleCalculatorServlet extends HttpServlet {
+public class VerySimplePrimeServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,6 +32,7 @@ public class VerySimpleCalculatorServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
             try {
                 String xStr = request.getParameter("x");
                 String yStr = request.getParameter("y");
@@ -51,7 +51,7 @@ public class VerySimpleCalculatorServlet extends HttpServlet {
 //                }else if (operator.equalsIgnoreCase("/")) {
 //                   result= x / y; 
 //                }
-                SimpleCalculator sc = new SimpleCalculator();
+                SimplePrime sc = new SimplePrime();
                 sc.setX(x);
                 sc.setY(y);
                 sc.setOperator(operator);
@@ -80,8 +80,6 @@ public class VerySimpleCalculatorServlet extends HttpServlet {
                 out.println("</body>");
                 out.println("</html>");
             }
-             
-            
         }
     }
 
