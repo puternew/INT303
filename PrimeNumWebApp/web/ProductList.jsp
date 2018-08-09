@@ -32,11 +32,17 @@
     </style>
     <body>
         <center><h1>Product List</h1><hr></center>
+        
         <div class="container" >
-            <table class="table table-hover" id="example" style="width: 70vw"  >
+            <table class="table-hover">
+            <tr>
+                <td><a href="ShowCartServlet">your CART : (${cart.totalQuantity})</a></td>
+            </tr>
+            </table>
+            <table class="table table-hover " id="example" style="width: 70vw ; text-align: center"  >
                 <thead>
-                <th>image</th>
-                <th>No</th>
+                <th>Image</th>
+                <th>Number</th>
                 <th>Product Code</th>
                 <th>Product Name</th>
                 <th>Product Line</th>
@@ -54,8 +60,13 @@
                         <td>${p.productLine}</td>
                         <td>${p.productScale}</td>
                         <td>${p.msrp}</td>
-                        <td><a href="AddItemToCart?productCode=${p.productCode}"><input type="button" value="ADD"></a></td>
-                        
+                        <!--<td><a href="AddItemToCart?productCode=${p.productCode}"><input type="button" value="ADD"></a></td>-->
+                        <td>
+                            <form action="AddItemToCart" method="post">
+                                <input type="hidden" value="${p.productCode}" name="productCode"/>
+                                <input type="submit" value="Add To Cart">
+                                </form>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>
