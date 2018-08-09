@@ -3,22 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sit.int303.primeNumber.servlet;
+package sit.int303.product.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import sit.int303.primeNumber.model.SimpleCalculator;
+import sit.int303.first.model.ShoppingCart;
+import sit.int303.mockup.model.Product;
+import sit.int303.mockup.model.ProductMockup;
 
 /**
  *
- * @author PANUPONG INTHILAD
+ * @author INT303
  */
-public class VerySimpleCalculatorServlet extends HttpServlet {
+@WebServlet(name = "AddItemToCartServlet", urlPatterns = {"/AddItemToCart"})
+public class AddItemToCartServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,38 +36,16 @@ public class VerySimpleCalculatorServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            try {
-                
-                HttpSession session = request.getSession(true);
-                String inputStr = request.getParameter("input");
-                if (inputStr!=null) {
-                 int input = Integer.valueOf(inputStr);
-                 SimpleCalculator sc = (SimpleCalculator)session.getAttribute("sc") ;
-                    if (sc == null) {
-                        sc = new SimpleCalculator(input);
-                        session.setAttribute("sc", sc);
-                    }
-                    sc.setInput(input);
-                }
-           
-//                 request.setAttribute("calculator", sc);              
-                 getServletContext().getRequestDispatcher("/SimpleCalculatorView.jsp").forward(request, response);
-                               
-            } 
-            
-            catch (Exception e) {    
-               out.println("<!DOCTYPE html>");
-               out.println("<html>");
-               out.println("<head>");
-               out.println("<title>Servlet VerySimpleCalculatorServlet</title>");            
-               out.println("</head>");
-               out.println("<body>");
-                out.println("<h1><center><b>-- Servlet Error --</b></center></h1>");
-                out.println("</body>");
-                out.println("</html>");
-            }
+        HttpSession session = request.getSession(true);
+        ShoppingCart cart = (ShoppingCart)session.getAttribute("cart");
+        if (cart == null) {
+            cart = new ShoppingCart();
+            session.setAttribute("cart", cart);
         }
+        String productCode = request.getParameter("productCode");
+        Product p = ProductMockup.getProduct(productCode);
+        cart.add(p);
+        getServletContext().getRequestDispatcher("/ProductList").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -17,15 +17,15 @@
             text-align: center;
             height: 100vh;
             overflow-y: hidden;
-        background: linear-gradient(to bottom right, red, yellow); /* Standard syntax (must be last) */ 
+        background: linear-gradient(to bottom right, #9900ff, #33cc33); /* Standard syntax (must be last) */ 
         }
     </style>
     <body>
    
-        
+        <p>${sc}</p>
         <h1 style="font-size:300%;">--  Result  --</h1>
         <div style="font-size:160%;"> 
-            " ${calculator.result} "   
+            " ${sc.result} "   
         </div>
    
 </body>

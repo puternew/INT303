@@ -11,6 +11,15 @@ package sit.int303.primeNumber.model;
  */
 public class SimpleCalculator {
     private int input;
+
+    public SimpleCalculator() {
+    }
+
+    public SimpleCalculator(int input) {
+        this.input = input;
+    }
+
+ 
     
     public String getResult(){
         int check;
@@ -40,10 +49,7 @@ public class SimpleCalculator {
         this.input = input;
     }
 
-    @Override
-    public String toString() {
-        return this.input+getResult();
-    }
+    
     
     
 }
