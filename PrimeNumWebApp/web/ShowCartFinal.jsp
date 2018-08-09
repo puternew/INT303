@@ -24,6 +24,7 @@
                 <th>Product Line</th>
                 <th>Scale</th>
                 <th>Price</th>
+                <th>Add to Cart</th>
                 </thead>
                 <c:forEach items="${cart.lineItems}" var="p" varStatus="vs">
                     
@@ -35,7 +36,12 @@
                         <td>${p.product.productLine}</td>
                         <td>${p.product.productScale}</td>
                         <td>${p.product.msrp}</td>
-
+                        <td>
+                            <form action="AddItemToCart" method="post">
+                                <input type="hidden" value="${p.product.productCode}" name="productCode"/>
+                                <input type="submit" value="Cancel">
+                                </form>
+                        </td>
                         
                     </tr>
                 </c:forEach>
