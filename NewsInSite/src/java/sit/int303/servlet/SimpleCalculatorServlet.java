@@ -7,18 +7,17 @@ package sit.int303.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import sit.int303.model.SimpleCalculator;
 
 /**
  *
  * @author INT303
  */
-public class SimpleCalclatorServlet extends HttpServlet {
+public class SimpleCalculatorServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -47,7 +46,7 @@ public class SimpleCalclatorServlet extends HttpServlet {
                 sc.setOperator(operator);
                 
                 request.setAttribute("calculator", sc);
-                getServletContext().getRequestDispatcher("/SimplePrimeView.jsp").forward(request, response);
+                getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
   
             } catch (Exception e) {
                 out.println("<!DOCTYPE html>");
@@ -59,7 +58,8 @@ public class SimpleCalclatorServlet extends HttpServlet {
                 out.println("<h1>Servlet ERROR " + "</h1>");
                 out.println("</body>");
                 out.println("</html>");
-            }
+            }         
+            
         }
     }
 

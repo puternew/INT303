@@ -2,11 +2,27 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>SimpleCalclatorServlet</servlet-name>
-        <servlet-class>sit.int303.servlet.SimpleCalclatorServlet</servlet-class>
+        <servlet-class>sit.int303.insite.servlet.SimpleCalclatorServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SimCalculatorServlet</servlet-name>
+        <servlet-class>SimCalculatorServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SimpleCalculatorServlet</servlet-name>
+        <servlet-class>sit.int303.servlet.SimpleCalculatorServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SimpleCalclatorServlet</servlet-name>
         <url-pattern>/SimpleCalclator</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SimCalculatorServlet</servlet-name>
+        <url-pattern>/SimCalculator</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SimpleCalculatorServlet</servlet-name>
+        <url-pattern>/SimpleCalculator</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

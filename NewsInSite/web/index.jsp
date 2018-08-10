@@ -4,6 +4,7 @@
     Author     : INT303
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +34,14 @@
   </head>
   <style>
       body {
-        background: linear-gradient(to bottom right, #9900ff, #33cc33);
+        /*background: linear-gradient(to bottom right, #4FBDDD, #FFE920);*/
+      }
+      #calculator {
+          text-align: center;
+          background-color: buttonhighlight;
+      }
+      #table {
+          text-align: center;
       }
   </style>
   <body id="page-top">
@@ -49,10 +57,10 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+              <a class="nav-link js-scroll-trigger" href="#services">Option</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+              <a class="nav-link js-scroll-trigger" href="#calculator">Simple Calculator</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#about">About</a>
@@ -125,10 +133,63 @@
       </div>
     </section>
 
-   
+    <!-- Simple Calculator ---------------------------------------------------->
     
-    
-
+    <section id="calculator">
+         <div>
+    <h1>Calculator</h1>
+        <form action="SimpleCalculator#calculator" method="post">
+            x= <input type = "number" required name= "x"/>
+            <select name="operator">
+            <option value = "+">+</option>
+            <option value = "-">-</option>
+            <option value = "*">*</option>
+            <option value = "/">/</option>              
+            </select>
+            y= <input type = "number" required name= "y"/>
+            <input type="submit"/>
+        </form>
+    <br><br>
+    <h1>Result ::</h1>
+    <table id="table">
+            <tr>
+                <td> X </td>
+                <td> = </td>
+                <td> ${calculator.x} </td>                          
+            </tr>
+            <tr>
+                <td> Y </td>
+                <td> = </td>
+                <td> ${calculator.y} </td>                     
+            </tr>
+            <tr>
+                <td> Operator </td>
+                <td> = </td>
+                <td> ${calculator.operator} </td>                   
+            </tr>
+            <tr>
+                <td> Result </td>
+                <td> = </td> 
+                <td> ${calculator.result} </td>                     
+            </tr>
+        </table>
+    </div>
+    </section> 
+   <!-------------------------------------------------------------------------->
+ <table>
+      <tr><td colspan=5>Table of Number${param.n}</td></tr>
+ 
+      <c:forEach begin="2" end="12" var="x">
+        <tr>
+        <td style=text-align right>${param.n}</td>
+            <td>x</td>
+            <td style=text-align right>${x}</td>
+            <td>=</td>
+            <td style=text-align right>${param.nx}</td>
+      </tr>
+        </c:forEach>
+  </table>
+   <!-------------------------------------------------------------------------->
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

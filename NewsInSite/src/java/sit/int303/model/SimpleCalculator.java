@@ -9,8 +9,8 @@ package sit.int303.model;
  *
  * @author INT303
  */
-class SimpleCalculator {
-    private double x;
+public class SimpleCalculator {
+   private double x;
     private double y;
     private String operator;
 
@@ -54,6 +54,5 @@ class SimpleCalculator {
     @Override
     public String toString() {
         return "x="+x+",y="+y+","+x+operator+y+" = "+getResult();
-    } 
-    
+    }  
 }

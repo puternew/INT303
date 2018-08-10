@@ -14,6 +14,7 @@
     </head>
     
     <body>
+        <jsp:include page="inclued/Header.jsp?title=Your Shopping Cart::"/>
         <h1>Cart Total to PAY</h1>
         <table class="table table-hover " id="example" style="width: 70vw ; text-align: center"  >
                 <thead>
