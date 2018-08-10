@@ -3,22 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sit.int303.first.servlet;
+package sit.int303.servlet;
 
-import com.sun.org.apache.xalan.internal.xsltc.runtime.Operators;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import sit.int303.first.model.SimpleCalculator;
 
 /**
  *
  * @author INT303
  */
-public class VerySimpleCalculatorServlet extends HttpServlet {
+public class SimpleCalclatorServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -59,8 +59,7 @@ public class VerySimpleCalculatorServlet extends HttpServlet {
                 out.println("<h1>Servlet ERROR " + "</h1>");
                 out.println("</body>");
                 out.println("</html>");
-            }           
-            
+            }
         }
     }
 

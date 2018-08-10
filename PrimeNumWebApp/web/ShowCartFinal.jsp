@@ -18,11 +18,10 @@
         <table class="table table-hover " id="example" style="width: 70vw ; text-align: center"  >
                 <thead>
                 <th>Image</th>
-                <th>Number</th>
                 <th>Product Code</th>
+                <th>Quantity</th>
                 <th>Product Name</th>
                 <th>Product Line</th>
-                <th>Scale</th>
                 <th>Price</th>
                 <th>Add to Cart</th>
                 </thead>
@@ -30,21 +29,30 @@
                     
                     <tr>
                         <td><img src="model-images/${p.product.productCode}.jpg" width="120"></td>
-                        <td>${vs.count}</td>
                         <td>${p.product.productCode}</td>
+                        <td>${p.quantity}</td>                   
                         <td>${p.product.productName}</td>
                         <td>${p.product.productLine}</td>
-                        <td>${p.product.productScale}</td>
                         <td>${p.product.msrp}</td>
                         <td>
-                            <form action="AddItemToCart" method="post">
+                            <form action="RemoveItemToCart" method="post">
                                 <input type="hidden" value="${p.product.productCode}" name="productCode"/>
-                                <input type="submit" value="Cancel">
+                                <input type="submit" value="Cancel" >
                                 </form>
                         </td>
                         
                     </tr>
                 </c:forEach>
+                    
+                    <tr>
+                        <td></td>                      
+                        <td>Total :</td>                      
+                        <td>${cart.totalQuantity}</td>                      
+                        <td></td>
+                        <td>Price :</td>
+                        <td>${cart.totalPrice}</td>
+                        
+                    </tr>
             </table>
         
     </body>

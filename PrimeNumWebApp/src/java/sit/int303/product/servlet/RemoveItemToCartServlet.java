@@ -3,22 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sit.int303.first.servlet;
+package sit.int303.product.servlet;
 
-import com.sun.org.apache.xalan.internal.xsltc.runtime.Operators;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import sit.int303.first.model.SimpleCalculator;
+import javax.servlet.http.HttpSession;
+import sit.int303.first.model.ShoppingCart;
+import sit.int303.mockup.model.Product;
+import sit.int303.mockup.model.ProductMockup;
 
 /**
  *
  * @author INT303
  */
-public class VerySimpleCalculatorServlet extends HttpServlet {
+public class RemoveItemToCartServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,37 +33,15 @@ public class VerySimpleCalculatorServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            try {
-                String xStr = request.getParameter("x");
-                String yStr = request.getParameter("y");
-                String operator = request.getParameter("operator");
-//            parseInt=valueOf
-                double x = Integer.parseInt(xStr);
-                double y = Integer.valueOf(yStr);
-
-                SimpleCalculator sc = new SimpleCalculator();
-                sc.setX(x);
-                sc.setY(y);
-                sc.setOperator(operator);
-                
-                request.setAttribute("calculator", sc);
-                getServletContext().getRequestDispatcher("/SimplePrimeView.jsp").forward(request, response);
-  
-            } catch (Exception e) {
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Servlet VerySimpleCalculatorServlet</title>");            
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<h1>Servlet ERROR " + "</h1>");
-                out.println("</body>");
-                out.println("</html>");
-            }           
-            
-        }
+        response.setContentType("text/html;charset=UTF-8");     
+        HttpSession session = request.getSession(true);
+        ShoppingCart cart = (ShoppingCart)session.getAttribute("cart");
+        
+        String productCode = request.getParameter("productCode");
+        Product p = ProductMockup.getProduct(productCode);
+        cart.remove(p);
+        response.sendRedirect("ShowCartServlet");
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
