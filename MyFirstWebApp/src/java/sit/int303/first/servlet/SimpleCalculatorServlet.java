@@ -31,22 +31,22 @@ public class SimpleCalculatorServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             try {
                 String xStr = request.getParameter("x");
                 String yStr = request.getParameter("y");
-//            parseInt=valueOf
-                int x = Integer.parseInt(xStr);
-                int y = Integer.valueOf(yStr);
 
+                int x = Integer.valueOf(xStr);
+                int y = Integer.valueOf(yStr);
                 int result = x + y;
+
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
                 out.println("<head>");
                 out.println("<title>Servlet SimpleCalculatorServlet</title>");
                 out.println("</head>");
                 out.println("<body>");
-                out.println(String.format("<h1> x = %d, y = %d,  %d + %d = %d </h1>\n", x, y, x, y, result));
+                out.println(String.format("<h1> x = %d,  y =%d  %d + %d = %d </h1>\n",
+                        x, y, x, y, result));
                 out.println("</body>");
                 out.println("</html>");
             } catch (Exception e) {
@@ -56,7 +56,7 @@ public class SimpleCalculatorServlet extends HttpServlet {
                 out.println("<title>Servlet SimpleCalculatorServlet</title>");
                 out.println("</head>");
                 out.println("<body>");
-                out.println("<h1> Wow‼ EROR 404 </h1>");
+                out.println("<h1> Invalid input !!! </h1>");
                 out.println("</body>");
                 out.println("</html>");
             }

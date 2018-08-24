@@ -10,51 +10,54 @@ package sit.int303.first.model;
  * @author INT303
  */
 public class SimpleCalculator {
-    private double x;
-    private double y;
+
+    private int x;
+    private int y;
     private String operator;
 
-    public double getResult(){
-
-        if (operator.equalsIgnoreCase("+")) {
-                   return x + y; 
-                }else if (operator.equalsIgnoreCase("-")) {
-                   return x - y; 
-                }else if (operator.equalsIgnoreCase("x")) {
-                   return x * y; 
-                }else if (operator.equalsIgnoreCase("/")) {
-                   return x / y; 
-                }
-        return 0;
+    public int getResult() {
+        switch (operator) {
+            case "+":
+                return x + y;
+            case "-":
+                return x - y;
+            case "*":
+                return x * y;
+            case "/":
+                return x / y;
+            default:
+                return 0;
+        }
     }
-    public double getX() {
+
+    @Override
+    public String toString() {
+        return String.format("x = %d,  y =%d ,  %d %s %d = %d \n",
+                        x, y, x, operator, y, getResult());
+    }
+
+    public int getX() {
         return x;
     }
 
-    public double getY() {
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
         return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 
     public String getOperator() {
         return operator;
     }
 
-    public void setX(double x) {
-        this.x = x;
-    }
-
-    public void setY(double y) {
-        this.y = y;
-    }
-
     public void setOperator(String operator) {
         this.operator = operator;
     }
 
-    @Override
-    public String toString() {
-        return "x="+x+",y="+y+","+x+operator+y+" = "+getResult();
-    } 
-    
-    
 }

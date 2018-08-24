@@ -1,6 +1,6 @@
 <%-- 
-    Document   : SimpleCalculatorview
-    Created on : Aug 6, 2018, 4:10:22 PM
+    Document   : SimpleCalculatorView
+    Created on : Aug 6, 2018, 4:10:14 PM
     Author     : INT303
 --%>
 
@@ -12,27 +12,27 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Result ::</h1>
+        <h1>Result ::</h1><hr>
         <table>
             <tr>
-                <td> X </td>
+                <td> x</td>
                 <td> = </td>
-                <td> ${calculator.x} </td>                          
+                <td> ${calculator.x}  </td>
             </tr>
             <tr>
-                <td> Y </td>
+                <td> y</td>
                 <td> = </td>
-                <td> ${calculator.y} </td>                     
+                <td> ${calculator.y}  </td>
             </tr>
-            <tr>
-                <td> Operator </td>
+               <tr>
+                <td> operator</td>
                 <td> = </td>
-                <td> ${calculator.operator} </td>                   
+                <td> ${calculator.operator}  </td>
             </tr>
-            <tr>
-                <td> Result </td>
-                <td> = </td> 
-                <td> ${calculator.result} </td>                     
+               <tr>
+                <td> Result</td>
+                <td> = </td>
+                <td> ${calculator.result}  </td>
             </tr>
         </table>
     </body>

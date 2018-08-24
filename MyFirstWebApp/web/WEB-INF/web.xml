@@ -8,17 +8,61 @@
         <servlet-name>VerySimpleCalculatorServlet</servlet-name>
         <servlet-class>sit.int303.first.servlet.VerySimpleCalculatorServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PrimeNumberServlet</servlet-name>
+        <servlet-class>sit.int303.first.servlet.PrimeNumberServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProductListServlet</servlet-name>
+        <servlet-class>sit.int303.first.servlet.ProductListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddItemToCartServlet</servlet-name>
+        <servlet-class>sit.int303.first.servlet.AddItemToCartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShowCartServlet</servlet-name>
+        <servlet-class>sit.int303.first.servlet.ShowCartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChooseBackgroundServlet</servlet-name>
+        <servlet-class>sit.int303.first.servlet.ChooseBackgroundServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SimpleCalculatorServlet</servlet-name>
         <url-pattern>/SimpleCalc</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>VerySimpleCalculatorServlet</servlet-name>
-        <url-pattern>/VerySimpleCalc</url-pattern>
+        <url-pattern>/vsc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PrimeNumberServlet</servlet-name>
+        <url-pattern>/PrimeNumber</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductListServlet</servlet-name>
+        <url-pattern>/ProductList</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddItemToCartServlet</servlet-name>
+        <url-pattern>/AddItemToCart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowCartServlet</servlet-name>
+        <url-pattern>/ShowCart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChooseBackgroundServlet</servlet-name>
+        <url-pattern>/ChooseBackground</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <error-page>
+        <error-code>400</error-code>
+        <location>/ErrorInfo.html</location>
+    </error-page>
 </web-app>

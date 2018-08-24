@@ -5,7 +5,6 @@
  */
 package sit.int303.first.servlet;
 
-import com.sun.org.apache.xalan.internal.xsltc.runtime.Operators;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -36,52 +35,21 @@ public class VerySimpleCalculatorServlet extends HttpServlet {
             try {
                 String xStr = request.getParameter("x");
                 String yStr = request.getParameter("y");
-                String operator = request.getParameter("operator");
-//            parseInt=valueOf
-                double x = Integer.parseInt(xStr);
-                double y = Integer.valueOf(yStr);
-//                double result = 0;
-//                
-//                 if (operator.equalsIgnoreCase("+")) {
-//                   result= x + y; 
-//                }else if (operator.equalsIgnoreCase("-")) {
-//                   result= x - y; 
-//                }else if (operator.equalsIgnoreCase("x")) {
-//                   result= x * y; 
-//                }else if (operator.equalsIgnoreCase("/")) {
-//                   result= x / y; 
-//                }
-                SimpleCalculator sc = new SimpleCalculator();
+                String oper = request.getParameter("operator");
+                if(" ".equals(oper)) {
+                    oper = "+" ;
+                }
+                int x = Integer.valueOf(xStr);
+                int y = Integer.valueOf(yStr);
+                SimpleCalculator sc = new SimpleCalculator() ;
                 sc.setX(x);
                 sc.setY(y);
-                sc.setOperator(operator);
-                
+                sc.setOperator(oper);
                 request.setAttribute("calculator", sc);
-                getServletContext().getRequestDispatcher("/SimpleCalculatorview.jsp").forward(request, response);
-                
-                
-//                out.println("<!DOCTYPE html>");
-//                out.println("<html>");
-//                out.println("<head>");
-//                out.println("<title>Servlet SimpleCalculatorServlet</title>");
-//                out.println("</head>");
-//                out.println("<body>");
-//                out.println("<h1>"+sc.toString()+"</h1>");
-//                out.println("</body>");
-//                out.println("</html>");
+                getServletContext().getRequestDispatcher("/SimpleCalculatorView.jsp").forward(request, response);
             } catch (Exception e) {
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Servlet VerySimpleCalculatorServlet</title>");            
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<h1>Servlet ERROR " + "</h1>");
-                out.println("</body>");
-                out.println("</html>");
             }
-             
-            
+
         }
     }
 
