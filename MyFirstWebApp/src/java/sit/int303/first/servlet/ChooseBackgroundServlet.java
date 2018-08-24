@@ -35,7 +35,7 @@ public class ChooseBackgroundServlet extends HttpServlet {
         if (bgColor != null && bgColor.trim().length()>0) {
             Cookie ck = new Cookie("bgColor",bgColor);
             response.addCookie(ck);
-            response.sendRedirect("index.html");
+            response.sendRedirect("index.jsp");
         } else{
             getServletContext().getRequestDispatcher("/ChooseBackground.jsp").forward(request, response);
         }
