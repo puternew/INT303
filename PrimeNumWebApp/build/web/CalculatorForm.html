@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Prime Number Check</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <style>
+        body{
+            margin: 250px 250px;
+            text-align: center;
+            background-color: #9900ff;
+            color:#33cc33;
+        }  
+        
+        h1{
+            animation: infinite shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+            transform: translate3d(0, 0, 0);
+
+        }
+
+         @keyframes shake {
+            10%, 90% {
+            transform: translate3d(-1px, 0, 0);
+        }
+  
+            20%, 80% {
+            transform: translate3d(2px, 0, 0);
+        }
+
+            30%, 50%, 70% {
+            transform: translate3d(-4px, 0, 0);
+        }
+
+            40%, 60% {
+            transform: translate3d(4px, 0, 0);
+        }
+        
+    }
+        input {
+            border-radius: 10px;
+            color: #9900ff;
+            background-color: #33cc33;
+            text-align: center
+        }
+    </style>
+    <body><center>
+        <h1 style="font-size:300%;">" Prime Number "</h1><br>
+        <form  action="VerySimpleCalculatorServlet" method="post">
+            Input Number = <input style="background-color: #ccffcc;" type = "number" required name= "input"/>
+            <input type="submit"/>
+        </form>
+        </center>
+    </body>
+</html>
